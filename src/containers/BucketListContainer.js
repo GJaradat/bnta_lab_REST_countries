@@ -11,7 +11,9 @@ const BucketListContainer = () => {
     const [visitedCountries, setVisitedCountries] = useState([]);
 
     const fetchCountries = async () => {
-        const response = await fetch("https://restcountries.com/v3.1/all");
+        const response = await fetch("https://restcountries.com/v3.1/all")
+        .catch(error => console.error(error));
+        
         const data = await response.json();
         setCountries(data);
     }
