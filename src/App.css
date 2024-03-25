@@ -28,8 +28,9 @@ form {
   margin: 10px;
 }
 
-form select {
+#chooseCountry {
   margin: 10px;
+  width: 100%;
 }
 
 form input {

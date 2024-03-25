@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
+import Select from "react-select";
 
 const CountryForm = (props) => {
     
     const [countryOptions, setCountryOptions] = useState([]);
-
+    const [currentOption, setCurrentOption] = useState("");
     useEffect(() => {
         // Get list of country names for dropdown - sorted alphabetically
         const countryNames = props.countries.map((country) => country.name.common).sort();
 
         // Generate Options in dropdown
         setCountryOptions(countryNames.map((countryName) => {
-            return <option key = {countryName} value = {countryName}>{countryName}</option>
+            return {
+                value: countryName,
+                label: countryName
+            }
         }))
     }, [props.countries]);
     
@@ -30,9 +34,18 @@ const CountryForm = (props) => {
         <>
             <form action="#" onSubmit={handleSubmit}>
                 <label htmlFor="chooseCountry">Select a Country:</label>
-                <select name="chooseCountry" id="chooseCountry" >
-                    {countryOptions}
-                </select>
+                <Select name="chooseCountry" id="chooseCountry" 
+                    options = {countryOptions}
+                    
+                    isSearchable = {true}
+                    isClearable = {true}
+                    
+                    // This section is a bit hectic cause I am trying to make the current option show in the field
+                    onChange={(event) => setCurrentOption(countryOptions.find((option) => option.value === event.value))}
+                    getOptionLabel={(option) => option.label}
+                    getOptionValue={(option) => option.value}
+                    value = {currentOption}
+                    />
                 <input type="submit" value="Add to Bucket List"/>
             </form>
         </>
