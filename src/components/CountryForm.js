@@ -29,7 +29,7 @@ const CountryForm = (props) => {
     return (
         <>
             <form action="#" onSubmit={handleSubmit}>
-                <label htmlFor="chooseCountry">Select Country</label>
+                <label htmlFor="chooseCountry">Select a Country:</label>
                 <select name="chooseCountry" id="chooseCountry" >
                     {countryOptions}
                 </select>

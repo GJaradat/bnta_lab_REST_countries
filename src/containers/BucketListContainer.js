@@ -23,14 +23,14 @@ const BucketListContainer = () => {
     } , []);
 
     return (
-        <>
+        <section id = "bucketListContainer">
             <CountryForm countries={countries} countriesToVisit={countriesToVisit} 
                             setCountriesToVisit={setCountriesToVisit}/>
             <CountriesToVisit countriesToVisit={countriesToVisit} visitedCountries={visitedCountries}
                             setCountriesToVisit={setCountriesToVisit} setVisitedCountries={setVisitedCountries}/>
             <VisitedCountries visitedCountries={visitedCountries} countriesToVisit={countriesToVisit} 
                             setCountriesToVisit={setCountriesToVisit} setVisitedCountries={setVisitedCountries}/>
-        </>
+        </section>
     )
 }
 

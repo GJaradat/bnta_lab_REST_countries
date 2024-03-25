@@ -6,6 +6,7 @@ import BucketListContainer from './containers/BucketListContainer';
 function App() {
   return (
     <div className="App">
+      <h1>Travel Bucket List</h1>
       <BucketListContainer />
     </div>
   );

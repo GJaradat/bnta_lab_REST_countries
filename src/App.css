@@ -1,38 +1,66 @@
-.App {
+* {
   text-align: center;
+  background-color: #fcfcb0;
+  font-family: cursive;
+  font-size: 26px;
+}
+h1 {
+  text-align: center;
+  font-size: 36px;
+}
+section {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+
+  padding: 10px;
+  margin: 10px;
+  min-height: 1000px;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* FORM */
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+form select {
+  margin: 10px;
+}
+
+form input {
+  border-radius: 20px;
+}
+
+/* BUCKET LIST */
+
+ul {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.country{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+
 }
 
-.App-link {
-  color: #61dafb;
+.country img {
+  width: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.country button {
+  width: fit-content;
+  border-radius: 20px;
+  margin: 10px;
+
+}
+li {
+  list-style-type: none;
 }
