@@ -1,33 +1,36 @@
-import { createElement, useState } from "react";
-import Country from "../components/Country";
+import { useEffect, useState } from "react";
 
 const CountryForm = (props) => {
     
-    // State for chosen country
-    const [chosenCountry, setChosenCountry] = useState("");
+    const [countryOptions, setCountryOptions] = useState([]);
 
-    // Get list of country names for dropdown
-    const countryNames = props.countries.map((country) => country.name.common);
+    useEffect(() => {
+        // Get list of country names for dropdown - sorted alphabetically
+        const countryNames = props.countries.map((country) => country.name.common).sort();
 
-    // Populate country names in dropdown
-    const countryOptions = countryNames.map((countryName) => {
-        return <option key = {countryName} value = {countryName}>{countryName}</option>
-    });
+        // Generate Options in dropdown
+        setCountryOptions(countryNames.map((countryName) => {
+            return <option key = {countryName} value = {countryName}>{countryName}</option>
+        }))
+    }, [props.countries]);
     
     // Handle form submission to get chosen country
     const handleSubmit = (event) => {
         event.preventDefault();
+        // get chosen country from dropdown value
+        const chosenCountry = (props.countries.find((country) => country.name.common === event.target.chooseCountry.value));
 
-        console.log(event.target.chooseCountry.value);
-        setChosenCountry(props.countries.find((country) => country.name.common === event.target.chooseCountry.value));
-        console.log(chosenCountry);
+        // Add chosen country to visited list
+        props.setCountriesToVisit([...props.countriesToVisit, chosenCountry]);
+        
+        // TODO: Remove chosen country from country options
     }
 
     return (
         <>
             <form action="#" onSubmit={handleSubmit}>
                 <label htmlFor="chooseCountry">Select Country</label>
-                <select name="chooseCountry" id="chooseCountry">
+                <select name="chooseCountry" id="chooseCountry" >
                     {countryOptions}
                 </select>
                 <input type="submit" value="Add to Bucket List"/>

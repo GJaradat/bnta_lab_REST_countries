@@ -13,7 +13,7 @@ const BucketListContainer = () => {
     const fetchCountries = async () => {
         const response = await fetch("https://restcountries.com/v3.1/all")
         .catch(error => console.error(error));
-        
+
         const data = await response.json();
         setCountries(data);
     }
@@ -25,9 +25,9 @@ const BucketListContainer = () => {
 
     return (
         <>
-            <CountryForm countries={countries} setCountriesToVisit={setCountriesToVisit}/>
-            {/* <CountriesToVisit />
-            <VisitedCountries /> */}
+            <CountryForm countries={countries} countriesToVisit={countriesToVisit} setCountriesToVisit={setCountriesToVisit}/>
+            <CountriesToVisit countriesToVisit={countriesToVisit} setCountriesToVisit={setCountriesToVisit} setVisitedCountries={setVisitedCountries}/>
+            {/* <VisitedCountries /> */}
         </>
     )
 }
