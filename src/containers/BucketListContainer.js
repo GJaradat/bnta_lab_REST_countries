@@ -23,9 +23,9 @@ const BucketListContainer = () => {
 
     return (
         <>
-            <CountryForm />
-            <CountriesToVisit />
-            <VisitedCountries />
+            <CountryForm countries={countries} setCountriesToVisit={setCountriesToVisit}/>
+            {/* <CountriesToVisit />
+            <VisitedCountries /> */}
         </>
     )
 }
