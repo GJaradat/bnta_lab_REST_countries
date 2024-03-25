@@ -2,10 +2,11 @@ import { useState } from "react";
 
 const Country = (props) => {
 
-    // Toggle event to move country between lists
     const [isVisited, setIsVisited] = useState(false);
+    const [seeMoreInfo, setSeeMoreInfo] = useState("none");
 
-    const ToggleEvent = async (event) => {
+    // Toggle event to move country between lists
+    const ToggleEventVisit = async (event) => {
         event.preventDefault();
         // Move from bucket list to visited 
         if (!isVisited) {
@@ -20,14 +21,36 @@ const Country = (props) => {
         // Change state on toggle
         setIsVisited(!isVisited);
     }
+
+    // Toggle event to see more info
+    const ToggleEventMore = (event) => {
+        event.preventDefault();
+
+        if (seeMoreInfo === "none") {
+            setSeeMoreInfo("block");
+        } else {
+            setSeeMoreInfo("none");
+        }
+    }
+
+
     // TODO: Change button innerHTML based on list
     return (
+        <>
         <div className = "country">
             <img src = {props.country.flags.png} alt = {props.country.name.common}/>
             <li>{props.country.name.common}</li>
-            <button onClick = {ToggleEvent}>Visit!🚩</button>
-
+            <button onClick = {ToggleEventMore}>Learn More</button>
+            <button onClick = {ToggleEventVisit}>Visit!🚩</button>
         </div>
+        <div style = {{display: seeMoreInfo}}>
+            <ul>
+                <li>Capital: {props.country.capital}</li>
+                <li>Population: {props.country.population}</li>
+                <li>Currency: {props.country.currencies[Object.keys(props.country.currencies)].name}</li>
+            </ul>
+        </div>
+        </>
     )
 }
 

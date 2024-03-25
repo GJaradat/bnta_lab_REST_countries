@@ -40,12 +40,19 @@ form input {
 
 ul {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+
+  border-radius: 10px;
+  border-bottom: 2px solid grey;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  border-top: 1px dotted grey;
+  margin : 10px;
 }
 
 .country{
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 0.25fr 1fr 1fr 0.75fr;
   justify-content: center;
   align-items: center;
 
@@ -58,7 +65,7 @@ ul {
 .country button {
   width: fit-content;
   border-radius: 20px;
-  margin: 10px;
+  margin: 5px;
 
 }
 li {
