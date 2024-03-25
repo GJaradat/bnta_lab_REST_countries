@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Country from "../components/Country";
 import CountryForm from "../components/CountryForm";
 import CountriesToVisit from "../components/CountriesToVisit";
 import VisitedCountries from "../components/VisitedCountries";
@@ -25,9 +24,12 @@ const BucketListContainer = () => {
 
     return (
         <>
-            <CountryForm countries={countries} countriesToVisit={countriesToVisit} setCountriesToVisit={setCountriesToVisit}/>
-            <CountriesToVisit countriesToVisit={countriesToVisit} setCountriesToVisit={setCountriesToVisit} setVisitedCountries={setVisitedCountries}/>
-            {/* <VisitedCountries /> */}
+            <CountryForm countries={countries} countriesToVisit={countriesToVisit} 
+                            setCountriesToVisit={setCountriesToVisit}/>
+            <CountriesToVisit countriesToVisit={countriesToVisit} visitedCountries={visitedCountries}
+                            setCountriesToVisit={setCountriesToVisit} setVisitedCountries={setVisitedCountries}/>
+            <VisitedCountries visitedCountries={visitedCountries} countriesToVisit={countriesToVisit} 
+                            setCountriesToVisit={setCountriesToVisit} setVisitedCountries={setVisitedCountries}/>
         </>
     )
 }
