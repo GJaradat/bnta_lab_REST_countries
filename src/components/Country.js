@@ -2,7 +2,9 @@ const Country = (props) => {
 
     return (
         <>
-            <li>{props.country.name.common}</li>
+            <li>{props.country.name.common}
+                <button onClick = {ToggleEvent}>Remove</button>
+            </li>
         </>
     )
 }
