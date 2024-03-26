@@ -12,6 +12,7 @@ const VisitedCountries = (props) => {
     return (
             <>
                 <ul id = "visitedCountries">
+                <h2>Visited Countries</h2>
                     {countryList}
                 </ul>
             </>
